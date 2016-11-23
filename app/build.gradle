@@ -32,4 +32,7 @@ dependencies {
 
     compile 'com.hannesdorfmann.mosby:mvp-conductor:0.8.2'
     compile 'com.hannesdorfmann.mosby:viewstate-conductor:0.8.2'
+
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.google.code.gson:gson:2.3.1'
 }

@@ -6,5 +6,25 @@
     <TextView
         android:id="@+id/tv_controller"
         android:layout_width="wrap_content"
+        android:layout_marginBottom="40dp"
         android:layout_height="wrap_content" />
+
+    <TextView android:text="Login With Facebook"
+
+        android:id="@+id/tv_fb_login"
+        android:padding="16dp"
+        android:layout_centerInParent="true"
+        android:background="#494949"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.facebook.login.widget.LoginButton
+        android:visibility="gone"
+        android:id="@+id/btn_fb_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
 </LinearLayout>

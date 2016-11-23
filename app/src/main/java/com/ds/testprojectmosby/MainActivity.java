@@ -14,6 +14,8 @@ import com.bluelinelabs.conductor.Router;
 import com.bluelinelabs.conductor.RouterTransaction;
 import com.ds.testprojectmosby.defaultscreen.DefaultScreenController;
 import com.ds.testprojectmosby.detail.DetailController;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 
 import org.w3c.dom.Text;
@@ -31,6 +33,10 @@ public class MainActivity extends MvpActivity<MainActivityView, MainActivityPres
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
         setContentView(R.layout.activity_main);
 
         ViewGroup container = (FrameLayout) findViewById(R.id.content_frame);
