@@ -1,7 +1,6 @@
 package com.ds.testprojectmosby.detail;
 
 import com.ds.testprojectmosby.EmptyView;
-import com.ds.testprojectmosby.MainActivityView;
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 
 /**

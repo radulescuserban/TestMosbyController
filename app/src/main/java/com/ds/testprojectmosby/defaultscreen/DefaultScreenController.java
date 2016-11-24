@@ -11,12 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bluelinelabs.conductor.Conductor;
-import com.bluelinelabs.conductor.Router;
 import com.bluelinelabs.conductor.RouterTransaction;
 import com.ds.testprojectmosby.EmptyView;
-import com.ds.testprojectmosby.MainActivity;
-import com.ds.testprojectmosby.MyApplication;
 import com.ds.testprojectmosby.PrefUtils;
 import com.ds.testprojectmosby.R;
 import com.ds.testprojectmosby.detail.DetailController;
@@ -37,7 +33,7 @@ import org.json.JSONObject;
  * Created by Serban Theodor on 17-Nov-16.
  */
 
-public class DefaultScreenController extends MvpController<EmptyView, DefaultScreenPresenter> {
+public class DefaultScreenController extends MvpController<EmptyView, DefaultScreenPresenter> implements EmptyView{
 
     private CallbackManager callbackManager;
     private LoginButton loginButton;
@@ -55,7 +51,7 @@ public class DefaultScreenController extends MvpController<EmptyView, DefaultScr
     protected View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
         final View view = inflater.inflate(R.layout.controller_default, container);
 
-        if(PrefUtils.getCurrentUser(getActivity()) != null) {
+        if(PrefUtils.getCurrentUser() != null) {
             RouterTransaction routerTransaction = RouterTransaction.with(new DetailController())
                     .tag("detail");
 
@@ -160,7 +156,7 @@ public class DefaultScreenController extends MvpController<EmptyView, DefaultScr
                                 user.email = object.getString("email").toString();
                                 user.name = object.getString("name").toString();
                                 user.gender = object.getString("gender").toString();
-                                PrefUtils.setCurrentUser(user,MyApplication.getAppContext());
+                                PrefUtils.setCurrentUser(user);
 
                             }catch (Exception e){
                                 e.printStackTrace();
