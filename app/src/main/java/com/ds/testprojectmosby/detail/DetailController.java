@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.bluelinelabs.conductor.RouterTransaction;
 import com.ds.testprojectmosby.EmptyView;
-import com.ds.testprojectmosby.MyApplication;
 import com.ds.testprojectmosby.PrefUtils;
 import com.ds.testprojectmosby.R;
 import com.ds.testprojectmosby.defaultscreen.DefaultScreenController;
@@ -45,7 +44,7 @@ public class DetailController extends MvpController<EmptyView, DetailPresenter> 
         tvController.setText("Detail screen! " + counter);
         counter++;
 
-        user = PrefUtils.getCurrentUser(getApplicationContext());
+        user = PrefUtils.getCurrentUser();
         profileImage= (ImageView) view.findViewById(R.id.iv_fb_image);
 
         // fetching facebook's profile picture
@@ -79,7 +78,7 @@ public class DetailController extends MvpController<EmptyView, DetailPresenter> 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PrefUtils.clearCurrentUser(getApplicationContext());
+                PrefUtils.clearCurrentUser();
 
 
                 // We can logout from facebook by calling following method

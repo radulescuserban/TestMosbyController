@@ -21,6 +21,7 @@ public class ComplexPreferences {
     Type typeOfObject = new TypeToken<Object>() {
     }.getType();
 
+
     private ComplexPreferences(Context context, String namePreferences, int mode) {
         this.context = context;
         if (namePreferences == null || namePreferences.equals("")) {
@@ -30,14 +31,13 @@ public class ComplexPreferences {
         editor = preferences.edit();
     }
 
-    public static ComplexPreferences getComplexPreferences(Context context,
-                                                           String namePreferences, int mode) {
+    public static void init(Context context) {
+        if (complexPreferences == null) {
+            complexPreferences = new ComplexPreferences(context, null, 0);
+        }
+    }
 
-//		if (complexPreferences == null) {
-        complexPreferences = new ComplexPreferences(context,
-                namePreferences, mode);
-//		}
-
+    public static ComplexPreferences getComplexPreferences() {
         return complexPreferences;
     }
 
@@ -57,6 +57,9 @@ public class ComplexPreferences {
         editor.commit();
     }
 
+    public void clearData(String key) {
+        editor.remove(key);
+    }
     public void clearObject() {
         editor.clear();
     }
